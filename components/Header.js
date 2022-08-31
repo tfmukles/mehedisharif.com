@@ -36,7 +36,7 @@ const Header = ({ toggle, isOpen }) => {
                       height={50}
                       alt="logo"
                       layout="fixed"
-                      priority
+                      priority={true}
                     />
                   </a>
                 </Link>
@@ -72,7 +72,7 @@ const Header = ({ toggle, isOpen }) => {
                         height={50}
                         alt="logo"
                         layout="fixed"
-                        priority
+                        priority={true}
                       />
                     </a>
                   </Link>
