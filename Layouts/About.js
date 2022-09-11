@@ -74,14 +74,16 @@ const About = ({ about }) => {
           ></span>
         </h3>
         <div>
-          <div className="ml-2 mb-4 text-center sm:float-right sm:mb-0 sm:max-w-[300px] md:max-w-none">
-            <Image
-              src={frontmatter.image}
-              width={412}
-              height={545}
-              alt="image"
-            />
-          </div>
+          {frontmatter.image && (
+            <div className="ml-2 mb-4 text-center sm:float-right sm:mb-0 sm:max-w-[300px] md:max-w-none">
+              <Image
+                src={frontmatter.image}
+                width={412}
+                height={545}
+                alt="image"
+              />
+            </div>
+          )}
           <div
             className="content"
             dangerouslySetInnerHTML={{ __html: marked.parse(content) }}

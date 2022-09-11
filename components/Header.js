@@ -32,7 +32,7 @@ const Header = ({ toggle, isOpen }) => {
                   <a className="inline-block translate-y-2.5">
                     <Image
                       src={logo_dark}
-                      width={215}
+                      width={217}
                       height={50}
                       alt="logo"
                       layout="fixed"
@@ -68,7 +68,7 @@ const Header = ({ toggle, isOpen }) => {
                     <a className="inline-block translate-y-2.5">
                       <Image
                         src={logo_light}
-                        width={215}
+                        width={217}
                         height={50}
                         alt="logo"
                         layout="fixed"

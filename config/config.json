@@ -1,9 +1,9 @@
 {
   "parameter": {
     "title": "Mehedi Sharif",
-    "favicon": "/images/icons/favicon.ico",
-    "logo_dark": "/images/icons/logo-dark.svg",
-    "logo_light": "/images/icons/logo-light.svg",
+    "favicon": "/images/favicon.png",
+    "logo_dark": "/images/icons/logo-dark.webp",
+    "logo_light": "/images/icons/logo-light.webp",
     "pagination": 6,
     "contact_form_action": "https://airform.io/mehedishariftitas@gmail.com"
   },

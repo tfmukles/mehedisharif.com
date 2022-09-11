@@ -3,7 +3,7 @@ import Layout from "components/Layout";
 import { Test } from "components/MdxComponents";
 import Posts from "components/Posts";
 import { getAllPosts, getIndexFile, getSinglePage } from "lib/pages";
-import { sortByDate } from "lib/utils/dateformat";
+import { sortByDate } from "lib/utils/sortFunctions";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { useState } from "react";
