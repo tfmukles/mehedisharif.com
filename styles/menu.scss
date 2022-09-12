@@ -3,7 +3,6 @@
   overflow: hidden;
   transition: 830ms height cubic-bezier(0.19, 1, 0.22, 1),
     350ms box-shadow linear;
-
   @media screen and (max-width: 1023px) {
     .menu-container {
       z-index: -1;
@@ -17,11 +16,9 @@
     }
   }
 }
-
 .menu-open .header-alt {
   height: 100%;
   box-shadow: 0 27px 53px 0 rgba(0, 0, 0, 0.14);
-
   @media screen and (max-width: 1023px) {
     overflow: visible;
     .menu-container {
@@ -33,7 +30,6 @@
     }
   }
 }
-
 .menu-toggler {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
