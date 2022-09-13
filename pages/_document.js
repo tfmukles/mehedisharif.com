@@ -1,27 +1,29 @@
-import TwSizeIndicator from "components/TwSizeIndicator";
-import style from "config/variables.json";
+import TwSizeIndicator from "@components/TwSizeIndicator";
+import config from "@config/config.json";
 import { Head, Html, Main, NextScript } from "next/document";
-import config from "../config/config.json";
 
 const Document = () => {
-  const { favicon } = config.parameter;
+  // destructuring items from config object
+  const { favicon } = config.site;
   return (
-    <Html>
+    <Html lang="en">
       <Head>
+        {/* favicon */}
         <link rel="shortcut icon" href={favicon} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
+        {/* color meta */}
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content="#fff"
         />
-        <link
-          href={`https://fonts.googleapis.com/css2?family=${style.font.font_family.primary}&display=swap`}
-          rel="stylesheet"
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content="#000"
         />
       </Head>
-
-      <body className="border-y-8 border-primary font-primary">
+      <body className="border-y-8 border-primary font-primary dark:border-white">
         <Main />
         <TwSizeIndicator />
         <NextScript />

@@ -1,12 +1,34 @@
 {
-  "parameter": {
-    "title": "Mehedi Sharif",
+  "site": {
+    "title": "Mehedi sharif",
+    "base_url": "/",
     "favicon": "/images/favicon.png",
-    "logo_dark": "/images/icons/logo-dark.webp",
-    "logo_light": "/images/icons/logo-light.webp",
-    "pagination": 6,
-    "contact_form_action": "https://airform.io/mehedishariftitas@gmail.com"
+    "logo": "/images/icons/logo-dark.webp",
+    "logo_darkmode": "/images/icons/logo-light.webp",
+    "logo_width": "217",
+    "logo_height": "50",
+    "logo_text": "Mehedi sharif"
   },
+
+  "settings": {
+    "theme_switcher": true,
+    "default_theme": "system",
+    "pagination": 4,
+    "summary_length": 200,
+    "blog_folder": "posts"
+  },
+
+  "params": {
+    "tag_manager_id": "",
+    "copyright": "Copyright © 2022 Mehedi sharif"
+  },
+
+  "metadata": {
+    "meta_author": "Mehedi sharif",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Mehedi sharif"
+  },
+
   "call_to_action": {
     "title": "found something interesting in me?? let’s have a conversation...",
     "subtitle": "hey look **at_here**",

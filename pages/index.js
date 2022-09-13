@@ -1,57 +1,45 @@
-import Banner from "components/Banner";
-import Layout from "components/Layout";
-import { Test } from "components/MdxComponents";
-import Posts from "components/Posts";
-import { getAllPosts, getIndexFile, getSinglePage } from "lib/pages";
-import { sortByDate } from "lib/utils/sortFunctions";
-import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
+import Banner from "@components/Banner";
+import config from "@config/config.json";
+import Base from "@layouts/Baseof";
+import { getListPage, getSinglePages } from "@lib/contentParser";
+import { sortByDate } from "@lib/utils/sortFunctions";
+import Posts from "@partials/Posts";
 import { useState } from "react";
-import rehypeSlug from "rehype-slug";
-import config from "../config/config.json";
+const { blog_folder } = config.settings;
 
-// mdx component
-const components = { Test };
-
-const Home = ({ post, postIndex, banner, mdxSource }) => {
-  const sortPostByDate = sortByDate(post);
+const Home = ({ posts, banner, postIndex }) => {
+  const sortPostByDate = sortByDate(posts);
+  const showPost = 4;
+  const { title } = config.site;
   const [isCta] = useState(true);
-  const showPost = Number(config.parameter.pagination);
+
   return (
-    <Layout title="Mehedi sharif" isCta={isCta}>
-      <MDXRemote {...mdxSource} components={components} />
+    <Base title={title} isCta={isCta}>
       <Banner banner={banner} />
       <Posts
         className="section"
-        post={sortPostByDate.slice(0, showPost)}
+        posts={sortPostByDate.slice(0, showPost)}
         postIndex={postIndex}
       />
-    </Layout>
+    </Base>
   );
 };
 
 export default Home;
 
+// for homepage data
 export const getStaticProps = async () => {
-  const banner = getSinglePage("content/_index.md");
-  const { content } = banner;
-  const options = {
-    mdxOptions: {
-      rehypePlugins: [
-        rehypeSlug, // add IDs to any h1-h6 tag that doesn't have one, using a slug made from its text
-      ],
-    },
-  };
-  const mdxSource = await serialize(content, options);
-  const postIndex = getIndexFile("content/posts");
-  const allPost = getAllPosts("content/posts", false);
+  const homepage = await getListPage("content");
+  const { frontmatter } = homepage;
+  const { banner } = frontmatter;
+  const postIndex = await getListPage(`content/${blog_folder}`);
+  const posts = getSinglePages(`content/${blog_folder}`);
 
   return {
     props: {
       banner: banner,
+      posts: posts,
       postIndex: postIndex,
-      post: allPost,
-      mdxSource: mdxSource,
     },
   };
 };

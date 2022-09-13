@@ -1,64 +1,77 @@
-import Layout from "components/Layout";
-import Pagination from "components/Pagination";
-import Posts from "components/Posts";
-import config from "config/config.json";
-import { getAllPosts, getIndexFile } from "lib/pages";
-import { useState } from "react";
+import Pagination from "@components/Pagination";
+import config from "@config/config.json";
+import Base from "@layouts/Baseof";
+import {
+  getListPage,
+  getSinglePages,
+  getSinglePagesSlug,
+} from "@lib/contentParser";
+import { parseMDX } from "@lib/utils/mdxParser";
+import Posts from "@partials/Posts";
+const { blog_folder } = config.settings;
 
-const BlogPagination = ({ blogIndex, allBlogs, page, pagination }) => {
-  const [index] = useState(true);
-  const indexOfLastPost = page * pagination;
+// blog pagination
+const BlogPagination = ({ postIndex, posts, currentPage, pagination }) => {
+  const indexOfLastPost = currentPage * pagination;
   const indexOfFirstPost = indexOfLastPost - pagination;
-  const numOfPage = Math.ceil(allBlogs.length / pagination);
-  const currentPosts = allBlogs.slice(indexOfFirstPost, indexOfLastPost);
+  const numOfPage = Math.ceil(posts.length / pagination);
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const { frontmatter } = postIndex;
+  const { title } = frontmatter;
 
   return (
-    <Layout title="blog">
-      <Posts
-        post={currentPosts}
-        postIndex={blogIndex}
-        index={index}
-        className="section"
-      />
-      <Pagination numOfPage={numOfPage} page={page} />
-    </Layout>
+    <Base title={title}>
+      <section className="section">
+        <div className="container">
+          <Posts
+            className="section"
+            posts={currentPosts}
+            postIndex={postIndex}
+          />
+          <Pagination numOfPage={numOfPage} currentPage={currentPage} />
+        </div>
+      </section>
+    </Base>
   );
 };
 
 export default BlogPagination;
 
+// get blog pagination slug
 export const getStaticPaths = () => {
-  const allBlogs = getAllPosts("content/posts", false);
-  const { pagination } = config.parameter;
-  const numOfPage = Math.ceil(allBlogs.length / pagination);
+  const allSlug = getSinglePagesSlug(`content/${blog_folder}`);
+  const { pagination } = config.settings;
+  const totalPages = Math.ceil(allSlug.length / pagination);
   let paths = [];
 
-  for (let i = 0; i < numOfPage; i++) {
+  for (let i = 0; i <= totalPages; i++) {
     paths.push({
       params: {
         slug: (i + 1).toString(),
       },
     });
   }
-
   return {
     paths,
     fallback: false,
   };
 };
 
-export const getStaticProps = ({ params }) => {
-  const page = parseInt((params && params.slug) || 1);
-  const { pagination } = config.parameter;
-  const allBlogs = getAllPosts("content/posts", false);
-  const blogIndex = getIndexFile("content/posts");
+// get blog pagination content
+export const getStaticProps = async ({ params }) => {
+  const currentPage = parseInt((params && params.slug) || 1);
+  const { pagination } = config.settings;
+  const posts = getSinglePages(`content/${blog_folder}`);
+  const postIndex = await getListPage(`content/${blog_folder}`);
+  const mdxContent = await parseMDX(postIndex.content);
 
   return {
     props: {
       pagination: pagination,
-      allBlogs: allBlogs,
-      page: page,
-      blogIndex: blogIndex,
+      posts: posts,
+      currentPage: currentPage,
+      postIndex: postIndex,
+      mdxContent: mdxContent,
     },
   };
 };

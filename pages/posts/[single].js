@@ -1,10 +1,13 @@
-import Layout from "components/Layout";
-import BlogSinglePost from "components/PostSingle";
-import { getAllPosts } from "lib/pages";
+import config from "@config/config.json";
+import PostSingle from "@layouts/PostSingle";
+import { getSinglePages, getSinglePagesSlug } from "@lib/contentParser";
+import { parseMDX } from "@lib/utils/mdxParser";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+const { blog_folder } = config.settings;
 
-const SinglePost = ({ post, allPost }) => {
-  const { frontmatter, slug, content } = post[0];
+// post single layout
+const Article = ({ post, allPost, mdxContent, slug }) => {
+  const { frontmatter, content } = post[0];
 
   var index = allPost.findIndex((img) => img.slug == slug);
   const prev = index - 1 >= 0 ? allPost[index - 1].slug : slug;
@@ -15,15 +18,16 @@ const SinglePost = ({ post, allPost }) => {
     index + 1 < allPost.length
       ? allPost[index + 1].frontmatter.title
       : frontmatter.title;
+
   const nextPrev = [
     {
-      button: "previous post",
+      button: "Previous Post",
       slug: prev,
       title: prevTitle,
       arrow: <BsArrowLeft />,
     },
     {
-      button: "next post",
+      button: "Next Post",
       slug: next,
       title: nextTitle,
       arrow: <BsArrowRight />,
@@ -31,22 +35,22 @@ const SinglePost = ({ post, allPost }) => {
   ];
 
   return (
-    <Layout title={slug}>
-      <BlogSinglePost
-        frontmatter={frontmatter}
-        content={content}
-        nextPrev={nextPrev}
-        slug={slug}
-      />
-    </Layout>
+    <PostSingle
+      frontmatter={frontmatter}
+      content={content}
+      mdxContent={mdxContent}
+      slug={slug}
+      nextPrev={nextPrev}
+    />
   );
 };
 
+// get post single slug
 export const getStaticPaths = () => {
-  const allBlogs = getAllPosts("content/posts", false);
-  const paths = allBlogs.map((post) => ({
+  const allSlug = getSinglePagesSlug(`content/${blog_folder}`);
+  const paths = allSlug.map((slug) => ({
     params: {
-      single: post.slug,
+      single: slug,
     },
   }));
 
@@ -56,17 +60,21 @@ export const getStaticPaths = () => {
   };
 };
 
-export const getStaticProps = ({ params }) => {
+// get post single content
+export const getStaticProps = async ({ params }) => {
   const { single } = params;
-  const allBlogs = getAllPosts("content/posts", false);
-  const singlePost = allBlogs.filter((p) => p.slug == single);
+  const posts = getSinglePages(`content/${blog_folder}`);
+  const post = posts.filter((p) => p.slug == single);
+  const mdxContent = await parseMDX(post[0].content);
 
   return {
     props: {
-      post: singlePost,
+      post: post,
+      allPost: posts,
+      mdxContent: mdxContent,
       slug: single,
-      allPost: allBlogs,
     },
   };
 };
-export default SinglePost;
+
+export default Article;
