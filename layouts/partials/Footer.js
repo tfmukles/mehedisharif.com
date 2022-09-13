@@ -2,7 +2,7 @@ import ThemeSwitcher from "@components/ThemeSwitcher";
 import config from "@config/config.json";
 import Devider from "@layouts/components/Devider";
 import Logo from "@layouts/components/Logo";
-import { socialMedia } from "@layouts/components/socialMedia";
+import { SocialMedia } from "@layouts/components/SocialMedia";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
 
           <ul className="social-icons order-last mt-4 lg:mt-0">
-            {socialMedia.map((icon) => (
+            {SocialMedia.map((icon) => (
               <li key={icon.name}>
                 <Link href={icon.link}>
                   <a>{icon.icon}</a>
