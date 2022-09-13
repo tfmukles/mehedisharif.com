@@ -1,5 +1,5 @@
 import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
-export const socialMedia = [
+export const SocialMedia = [
   {
     name: "Github",
     icon: <BsGithub />,
