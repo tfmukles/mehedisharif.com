@@ -1,5 +1,5 @@
+import { markdownify } from "@lib/utils/textConverter";
 import config from "config/config.json";
-import { marked } from "marked";
 import Link from "next/link";
 import Devider from "./Devider";
 
@@ -11,8 +11,9 @@ const CallToAction = () => {
       <div className="container">
         <Devider />
         <div className="section mx-auto overflow-hidden text-center md:w-[75%] lg:w-[80%] xl:w-[62%] 2xl:w-[58%]">
-          <div className="before:content[' '] after:content[' '] relative mb-8 inline-flex items-center justify-center before:absolute before:left-full before:top-1/2 before:mx-4 before:bg-black  before:px-8 before:py-px after:absolute after:right-full after:top-1/2 after:mx-4 after:bg-black after:px-8 after:py-px">
+          <div className="before:content[' '] after:content[' '] relative mb-8 inline-flex items-center justify-center before:absolute before:left-full before:top-1/2 before:mx-4 before:bg-black before:px-8  before:py-px after:absolute after:right-full after:top-1/2 after:mx-4 after:bg-black after:px-8 after:py-px dark:before:bg-white dark:after:bg-white">
             <svg
+              className="dark:invert"
               height={28}
               width={28}
               viewBox="0 0 38 38"
@@ -31,12 +32,11 @@ const CallToAction = () => {
                 </clipPath>
               </defs>
             </svg>
-            <h2
-              className="section-title section-title-center ml-3 text-center text-h5"
-              dangerouslySetInnerHTML={{
-                __html: marked.parseInline(call_to_action.subtitle),
-              }}
-            ></h2>
+            {markdownify(
+              call_to_action.subtitle,
+              "h2",
+              "section-title section-title-center ml-3 text-center text-h5"
+            )}
           </div>
 
           <h3 className="mb-10 text-h1 font-semibold capitalize">

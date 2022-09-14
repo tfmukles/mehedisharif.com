@@ -1,7 +1,7 @@
 ---
 title: A developer's guide to e-commerce
 date: 2022-04-04T05:00:00Z
-image: ""
+image: "/images/book.jpg"
 categories: ["development", "design"]
 draft: false
 ---

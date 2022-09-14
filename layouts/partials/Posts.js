@@ -1,5 +1,6 @@
 import { dateFormat } from "@lib/utils/dateFormat";
-import { marked } from "marked";
+import { markdownify } from "@lib/utils/textConverter";
+import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 
@@ -10,6 +11,7 @@ const Posts = ({ posts, postIndex, className }) => {
         {postIndex && (
           <div className="flex items-center pb-2">
             <svg
+              className="dark:invert"
               viewBox="0 0 38 38"
               height={38}
               width={38}
@@ -21,25 +23,42 @@ const Posts = ({ posts, postIndex, className }) => {
                 fill="black"
               />
             </svg>
-            <h2
-              className="section-title ml-3"
-              dangerouslySetInnerHTML={{
-                __html: marked.parseInline(postIndex.frontmatter.title),
-              }}
-            ></h2>
+            {markdownify(
+              postIndex.frontmatter.title,
+              "h2",
+              "section-title ml-3"
+            )}
           </div>
         )}
         {posts.map((post) => (
-          <div key={post.frontmatter.title} className="post-card mt-9">
+          <div key={post.frontmatter.title} className="post-card group mt-9">
             <Link href={`/posts/${post.slug}`} passHref>
-              <a className="flex flex-wrap justify-between p-6 md:px-8 lg:p-8 lg:px-12">
-                <span className="mb-4 basis-full pt-2 lg:mb-0 lg:basis-1/6 lg:text-base">
-                  {dateFormat(post.frontmatter.date, "dd MMM, yyyy")}
-                </span>
-                <h3 className="basis-11/12 text-h5 font-medium leading-relaxed md:text-h4 lg:ml-10 lg:basis-4/6 xl:text-h3">
-                  {post.frontmatter.title}
-                </h3>
-                <span className="ml-2 mt-4 pt-3 text-3xl font-normal md:mt-0 lg:ml-auto">
+              <a className="flex flex-wrap items-center justify-between p-6 md:px-8 lg:px-12">
+                <div className="basis-full lg:mr-10 lg:basis-1/6">
+                  {post.frontmatter.image ? (
+                    <Image
+                      src={post.frontmatter.image}
+                      height="138"
+                      width="184"
+                      alt={post.frontmatter.title}
+                    />
+                  ) : (
+                    <p className="mb-1 pt-1 text-sm text-gray-400">
+                      {dateFormat(post.frontmatter.date, "dd MMM, yyyy")}
+                    </p>
+                  )}
+                </div>
+                <div className="basis-11/12 lg:basis-4/6">
+                  {post.frontmatter.image && (
+                    <p className="mb-1 pt-1 text-sm text-gray-400">
+                      {dateFormat(post.frontmatter.date, "dd MMM, yyyy")}
+                    </p>
+                  )}
+                  <h3 className="text-h5 font-medium leading-relaxed md:text-h4 xl:text-h3">
+                    {post.frontmatter.title}
+                  </h3>
+                </div>
+                <span className="ml-2 mt-4 -translate-x-2 -translate-y-1 pt-3 text-3xl font-normal opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 md:mt-0 lg:ml-auto">
                   <BsArrowRight />
                 </span>
               </a>

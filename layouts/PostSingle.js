@@ -14,15 +14,15 @@ const PostSingle = ({ frontmatter, content, mdxContent, nextPrev, slug }) => {
     <Base title={title} description={description}>
       <section className="section">
         <div className="container mx-auto">
-          <div className="rounded-xl bg-gray-100 px-8 pt-14 pb-32 text-center md:px-14 md:pb-40 md:pt-20 lg:px-20">
+          <div className="rounded-xl bg-gray-100 px-8 pt-14 pb-32 text-center dark:bg-darkmode-border md:px-14 md:pb-40 md:pt-20 lg:px-20">
             <span className="mb-6 text-base font-normal">
               {dateFormat(date)}
             </span>
             <h1 className="text-h1 font-bold">{title}</h1>
           </div>
-          <div className="z-10 mx-auto -mt-20 w-4/5 rounded-md border border-gray-100 bg-white p-5 md:p-10 lg:p-16">
+          <div className="z-10 mx-auto -mt-20 w-4/5 rounded-md border border-gray-100 bg-white p-5 dark:border-darkmode-border dark:bg-darkmode-body md:p-10 lg:p-16">
             {image && (
-              <Image src={image} height="200" width="200" alt={title} />
+              <Image src={image} height="713" width="950" alt={title} />
             )}
             <div className="content mb-16 text-left">
               <MDXRemote {...mdxContent} components={shortcodes} />
