@@ -19,6 +19,7 @@
     "next-mdx-remote": "^4.1.0",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
+    "react-animate-on-scroll": "^2.1.5",
     "react-dom": "18.2.0",
     "react-gtm-module": "^2.0.11",
     "react-icons": "^4.4.0",

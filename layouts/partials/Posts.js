@@ -41,6 +41,7 @@ const Posts = ({ posts, postIndex, className }) => {
                       height="138"
                       width="184"
                       alt={post.frontmatter.title}
+                      className="rounded-lg"
                     />
                   ) : (
                     <p className="mb-1 pt-1 text-sm text-gray-400">
