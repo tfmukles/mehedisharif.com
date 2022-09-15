@@ -48,8 +48,13 @@ const CallToAction = () => {
           </Link>
         </div>
       </div>
-      <span className="absolute left-0 top-2/3 -z-10 opacity-5 dark:invert md:opacity-100">
-        <ScrollAnimation animateIn="triggerAnimation" duration="0" delay="50">
+      <span className="absolute left-0 top-1/2 -z-10 opacity-5 dark:invert md:opacity-100">
+        <ScrollAnimation
+          animateIn="triggerAnimation"
+          duration={0}
+          delay={50}
+          animateOnce={true}
+        >
           <svg
             className="animate-svg"
             width="161"
@@ -68,7 +73,12 @@ const CallToAction = () => {
         </ScrollAnimation>
       </span>
       <span className="absolute top-1/2 right-0 -z-10 opacity-5 dark:invert md:opacity-100">
-        <ScrollAnimation animateIn="triggerAnimation" duration="0" delay="50">
+        <ScrollAnimation
+          animateIn="triggerAnimation"
+          duration={0}
+          delay={50}
+          animateOnce={true}
+        >
           <svg
             className="animate-svg"
             width="167"

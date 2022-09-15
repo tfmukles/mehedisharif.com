@@ -88,6 +88,13 @@ strong {
     stroke-dashoffset: 0;
   }
 }
+.fadeUp {
+  transform: translateY(-10px);
+}
+.animateEl {
+  transform: translateY(0);
+  transition: 0.25s;
+}
 
 // content style
 .content {
