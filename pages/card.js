@@ -122,7 +122,7 @@ const Card = () => {
               </li>
               <li>
                 <a
-                  href={`tel:${phone}`}
+                  href={`https://wa.me/${phone}`}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   className="flex items-center justify-between rounded-lg bg-gray-100 py-3 px-4 text-sm font-normal text-primary transition-all hover:opacity-80"
