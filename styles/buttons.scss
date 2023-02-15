@@ -34,6 +34,28 @@
     }
   }
 }
+.btn-effect-0 {
+  @apply relative inline-block rounded-md border-2 border-primary bg-transparent px-5 py-3 text-sm dark:border-white;
+  transition: color 0s;
+  &::after,
+  &::before {
+    content: "";
+    @apply absolute border-2 border-black bg-white dark:border-white dark:bg-primary;
+    border-radius: 4px;
+    height: 12px;
+    width: 12px;
+    top: calc(50% - 6px);
+    pointer-events: none;
+    transition: background 0.1s 0.2s, top 0.1s 0.2s, height 0.1s 0.2s,
+      width 0.2s;
+  }
+  &::before {
+    left: -7px;
+  }
+  &::after {
+    right: -7px;
+  }
+}
 
 // line link style
 .line-link {

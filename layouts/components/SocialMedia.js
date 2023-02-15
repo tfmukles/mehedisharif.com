@@ -8,11 +8,11 @@ export const SocialMedia = [
   {
     name: "Twitter",
     icon: <BsTwitter />,
-    link: "https://twitter.com/mehedi-sharif",
+    link: "https://twitter.com/mehedi_titas",
   },
   {
     name: "Linkedin",
     icon: <BsLinkedin />,
-    link: "https://linkedin.com/mehedi-sharif",
+    link: "https://linkedin.com/in/mehedisharif",
   },
 ];
