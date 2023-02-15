@@ -10,6 +10,10 @@ strong {
 .bio {
   height: calc(100vh - 16px);
   @apply flex flex-col items-center justify-center overflow-hidden;
+  zoom: 1.29;
+  @screen sm {
+    zoom: 1;
+  }
   .bio-inner {
     @apply relative z-10 mx-auto my-0 h-screen w-full overflow-y-auto rounded-none border py-8 px-5 dark:border-darkmode-border sm:my-6 sm:h-[755px] sm:w-80 sm:rounded-lg;
     &::-webkit-scrollbar {
