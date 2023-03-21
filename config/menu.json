@@ -5,11 +5,7 @@
       "url": "/"
     },
     {
-      "name": "About Me",
-      "url": "/about"
-    },
-    {
-      "name": "My Blogs",
+      "name": "Posts",
       "url": "/posts"
     },
     {
