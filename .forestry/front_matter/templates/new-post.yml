@@ -14,3 +14,5 @@ fields:
 - type: boolean
   name: draft
   label: draft
+pages:
+- content/posts/welcome-to-my-tales-from-a-young-serial-entrepreneur-s-odyssey.md
