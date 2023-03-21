@@ -1,5 +1,5 @@
 ---
-title: Welcome to My  - Tales from a Young Serial Entrepreneur's Odyssey
+title: Hello World - Tales from a Young Serial Entrepreneur's Odyssey
 date: 2023-03-19T18:00:00Z
 categories: []
 draft: false
