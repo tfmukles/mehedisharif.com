@@ -2,7 +2,7 @@
 title: Welcome to My  - Tales from a Young Serial Entrepreneur's Odyssey
 date: 2023-03-19T18:00:00Z
 categories: []
-draft: true
+draft: false
 
 ---
 Hey there, and welcome to my website ! I'm Mehedi , just a regular guy who once tapped away at a keyboard as a developer but now finds himself engulfed in the thrilling world of entrepreneurship. But enough about me; let's dive into what this blog is all about.
