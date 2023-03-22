@@ -19,7 +19,7 @@ sections:
   path: content/about/_index.md
   label: About
 - type: document
-  path: content/contact.md
+  path: content/contact/_index.md
   label: Contact
 - type: heading
   label: Site Configurations
