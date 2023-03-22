@@ -1,6 +1,6 @@
 ---
 title: Hello World - Tales from a Young Serial Entrepreneur's Odyssey
-date: 2023-03-19T18:00:00Z
+date: 2023-03-19T18:00:00.000+00:00
 categories: []
 draft: false
 
@@ -21,8 +21,8 @@ So, what can you expect from this blog? Well, think of it as a travelogue of a y
 
 So, grab a cup of coffee (or tea, if that's your thing), and join me on this wild ride. I hope my stories can provide you with some entertainment, maybe even a few lessons learned, but most importantly, a sense of camaraderie as we navigate the exhilarating world of entrepreneurship together.
 
-Once again, welcome to blog, and happy reading!  
-  
-\##Tech behind my website 
+Once again, welcome to blog, and happy reading!
+
+## Tech behind my website
 
 This website runs on Next.js, which I've used as a static site generator .The CMS part, I've got Forestry handling things (as long as they keep offering support , as they are closing soon ). Site hosted on Vercel (my absolute favorite), and Cloudflare's got my back with a secure and speedy DNS service. 😊🌐
