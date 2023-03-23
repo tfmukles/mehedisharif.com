@@ -11,10 +11,8 @@ const Posts = ({ posts, postIndex, className }) => {
         {postIndex && (
           <div className="flex items-center pb-2">
             <svg
-              className="dark:invert"
+              className="h-5 w-5 dark:invert lg:h-6 lg:w-6"
               viewBox="0 0 38 38"
-              height={38}
-              width={38}
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -32,37 +30,39 @@ const Posts = ({ posts, postIndex, className }) => {
         )}
         {posts.map((post) => (
           <div key={post.frontmatter.title} className="post-card group mt-9">
-            <Link href={`/posts/${post.slug}`} passHref>
-              <a className="flex flex-wrap items-center justify-between p-6 md:px-8 lg:px-12">
-                <div className="basis-full lg:mr-10 lg:basis-1/6">
-                  {post.frontmatter.image ? (
-                    <Image
-                      src={post.frontmatter.image}
-                      height="138"
-                      width="184"
-                      alt={post.frontmatter.title}
-                      className="rounded-lg"
-                    />
-                  ) : (
-                    <p className="mb-1 pt-1 text-sm text-gray-400">
-                      {dateFormat(post.frontmatter.date, "dd MMM, yyyy")}
-                    </p>
-                  )}
-                </div>
-                <div className="basis-11/12 lg:basis-4/6">
-                  {post.frontmatter.image && (
-                    <p className="mb-1 pt-1 text-sm text-gray-400">
-                      {dateFormat(post.frontmatter.date, "dd MMM, yyyy")}
-                    </p>
-                  )}
-                  <h3 className="text-h5 font-medium leading-relaxed md:text-h4 xl:text-h3">
-                    {post.frontmatter.title}
-                  </h3>
-                </div>
-                <span className="ml-2 mt-4 -translate-x-2 -translate-y-1 pt-3 text-3xl font-normal opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 md:mt-0 lg:ml-auto">
-                  <BsArrowRight />
-                </span>
-              </a>
+            <Link
+              href={`/posts/${post.slug}`}
+              passHref
+              className="flex flex-wrap items-center justify-between p-6 md:px-8 lg:px-12"
+            >
+              <div className="basis-full lg:mr-10 lg:basis-1/6">
+                {post.frontmatter.image ? (
+                  <Image
+                    src={post.frontmatter.image}
+                    height="138"
+                    width="184"
+                    alt={post.frontmatter.title}
+                    className="rounded-lg"
+                  />
+                ) : (
+                  <p className="mb-3 pt-1 text-sm text-gray-400 lg:mb-1">
+                    {dateFormat(post.frontmatter.date, "dd MMM, yyyy")}
+                  </p>
+                )}
+              </div>
+              <div className="basis-11/12 lg:basis-4/6">
+                {post.frontmatter.image && (
+                  <p className="mb-1 pt-1 text-sm text-gray-400">
+                    {dateFormat(post.frontmatter.date, "dd MMM, yyyy")}
+                  </p>
+                )}
+                <h3 className="text-h5 font-medium leading-relaxed md:text-h4 xl:text-h3">
+                  {post.frontmatter.title}
+                </h3>
+              </div>
+              <span className="ml-2 mt-4 -translate-x-2 text-base font-normal transition-all group-hover:translate-x-0 group-hover:opacity-100 md:mt-0 md:-translate-y-5 md:pt-3 md:text-3xl md:opacity-0 lg:ml-auto lg:-translate-y-1">
+                <BsArrowRight />
+              </span>
             </Link>
           </div>
         ))}

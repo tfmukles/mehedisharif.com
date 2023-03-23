@@ -22,21 +22,21 @@ const Header = ({ toggle, isOpen }) => {
         <div className="container">
           <nav className="flex items-center justify-between py-4">
             <div className="logo-dark">
-              <Link href="/">
-                <a className="inline-block translate-y-2.5">
-                  <Image
-                    src={
-                      mounted && (theme === "dark" || resolvedTheme === "dark")
-                        ? logo_darkmode
-                        : logo
-                    }
-                    width={217}
-                    height={50}
-                    alt="logo"
-                    layout="fixed"
-                    priority={true}
-                  />
-                </a>
+              <Link
+                href="/"
+                className="inline-block w-10/12 translate-y-2.5 sm:w-full"
+              >
+                <Image
+                  src={
+                    mounted && (theme === "dark" || resolvedTheme === "dark")
+                      ? logo_darkmode
+                      : logo
+                  }
+                  width={217}
+                  height={50}
+                  alt="logo"
+                  priority={true}
+                />
               </Link>
             </div>
 
@@ -61,31 +61,35 @@ const Header = ({ toggle, isOpen }) => {
         </div>
       </div>
 
-      <div className="header-alt absolute top-0 w-full bg-black">
+      <div className="header-alt absolute top-0 w-full bg-black dark:bg-white">
         <div className="mx-auto max-w-[1460px]">
           <div className="container">
             <nav className="flex items-center justify-between py-4">
               <div className="logo-light order-0">
-                <Link href="/">
-                  <a className="inline-block translate-y-2.5">
-                    <Image
-                      src={logo_darkmode}
-                      width={217}
-                      height={50}
-                      alt="logo"
-                      layout="fixed"
-                      priority={true}
-                    />
-                  </a>
+                <Link
+                  href="/"
+                  className="inline-block w-10/12 translate-y-2.5 sm:w-full"
+                >
+                  <Image
+                    src={logo_darkmode}
+                    width={217}
+                    height={50}
+                    alt="logo"
+                    priority={true}
+                    className="dark:invert"
+                  />
                 </Link>
               </div>
 
               <div className="menu-container order-2 absolute left-0 top-full ml-auto inline-flex w-full flex-col pb-8 text-center md:order-1 lg:static lg:w-auto lg:flex-row lg:pb-0">
                 {main.map((menu) => (
-                  <Link key={menu.name} href={menu.url} passHref>
-                    <a className="mx-0 inline-block py-2 text-base text-white lg:mx-6 lg:py-0">
-                      {menu.name}
-                    </a>
+                  <Link
+                    key={menu.name}
+                    href={menu.url}
+                    passHref
+                    className="mx-0 inline-block py-2 text-base text-white dark:text-dark lg:mx-6 lg:py-0"
+                  >
+                    {menu.name}
                   </Link>
                 ))}
               </div>
@@ -96,7 +100,7 @@ const Header = ({ toggle, isOpen }) => {
                 onClick={toggle}
               >
                 <svg
-                  className="menu-toggler active light"
+                  className="menu-toggler active light dark:invert"
                   viewBox="0 0 100 100"
                   width="60"
                 >

@@ -37,9 +37,7 @@ const Footer = () => {
           <ul className="social-icons order-last mt-4 lg:mt-0">
             {SocialMedia.map((icon) => (
               <li key={icon.name}>
-                <Link href={icon.link}>
-                  <a>{icon.icon}</a>
-                </Link>
+                <Link href={icon.link}>{icon.icon}</Link>
               </li>
             ))}
           </ul>

@@ -40,11 +40,11 @@ const CallToAction = () => {
             )}
           </div>
 
-          <h3 className="mb-10 text-h1 font-semibold capitalize">
+          <h3 className="mb-10 text-[1.5rem] font-semibold capitalize md:text-h1">
             {call_to_action.title}
           </h3>
-          <Link href={call_to_action.button_link}>
-            <a className="btn">{call_to_action.button_label}</a>
+          <Link href={call_to_action.button_link} className="btn">
+            {call_to_action.button_label}
           </Link>
         </div>
       </div>

@@ -24,7 +24,7 @@ const BlogPagination = ({ postIndex, posts, currentPage, pagination }) => {
       <section className="section">
         <div className="container">
           <Posts
-            className="section"
+            className="mb-12 md:mt-12"
             posts={currentPosts}
             postIndex={postIndex}
           />

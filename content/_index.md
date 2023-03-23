@@ -2,6 +2,7 @@
 banner:
   title: "Hi, I’m **Mehedi_Sharif**"
   image: "/images/author.png"
+  image_light: "/images/author-light.png"
   bio: "Serial Entrepreneur, Code Lover, Designer, Open Source Enthusiastic, Optimus Prime, Biker...."
   brands:
     - name: themefisher

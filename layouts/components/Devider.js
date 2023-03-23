@@ -9,7 +9,7 @@ const Devider = () => {
           height={56}
           width={56}
           alt="linkchain"
-          className="dark:invert"
+          className="-mt-1 scale-75 dark:invert-[90%] sm:scale-100 lg:mt-0"
         />
       </div>
     </div>

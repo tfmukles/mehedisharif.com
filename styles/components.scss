@@ -2,8 +2,14 @@ b,
 strong {
   @apply font-semibold;
 }
+body {
+  @apply overflow-x-hidden;
+}
 .container {
-  @apply mx-auto px-4;
+  @apply mx-auto px-2 sm:px-4;
+  .container {
+    padding: 0 !important;
+  }
 }
 
 // bio
@@ -36,7 +42,7 @@ strong {
 .section {
   @apply py-16;
   &-title {
-    @apply text-h3 capitalize;
+    @apply text-base capitalize md:text-h3;
     strong {
       @apply relative inline-block pr-16;
       &::before {
@@ -60,7 +66,7 @@ strong {
   &::before {
     content: "";
     @apply absolute -rotate-45 border bg-white dark:border-darkmode-border dark:bg-darkmode-body;
-    transition: 0.1s;
+    transition: border 0.3s;
     height: 18px;
     width: 18px;
     top: calc(50% - 9px);
@@ -86,7 +92,7 @@ strong {
 
 // form style
 .form-inputs * {
-  @apply mb-5 leading-10;
+  @apply mb-4 leading-9 sm:mb-5 sm:leading-10;
 }
 
 .social-icons {
@@ -124,5 +130,5 @@ strong {
 
 // content style
 .content {
-  @apply prose max-w-none dark:prose-invert;
+  @apply prose max-w-none hover:prose-a:opacity-70 dark:prose-invert;
 }
