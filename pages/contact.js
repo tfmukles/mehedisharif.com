@@ -1,6 +1,7 @@
 import Base from "@layouts/Baseof";
 import { getListPage } from "@lib/contentParser";
 import { markdownify } from "@lib/utils/textConverter";
+import { useState } from "react";
 
 // for all regular pages
 const Contact = ({ data }) => {
@@ -13,6 +14,40 @@ const Contact = ({ data }) => {
     noindex,
     canonical,
   } = data.frontmatter;
+
+  const [submitted, setSubmitted] = useState(null);
+  const [loader, setLoader] = useState(false);
+  const formHandler = (e) => {
+    e.preventDefault();
+    setLoader(true);
+    fetch(
+      "https://formsubmit.co/ajax/mehedi@themefisher.com",
+
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          _subject: "Message From Personal Website",
+          name: full_name.value,
+          email: email.value,
+          message: message.value,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setSubmitted(data.success);
+        setLoader(false);
+        setTimeout(() => {
+          setSubmitted(null);
+        }, 4000);
+        e.target.reset();
+      })
+      .catch((error) => {
+        setSubmitted(error);
+        setLoader(false);
+      });
+  };
 
   return (
     <Base
@@ -84,17 +119,25 @@ const Contact = ({ data }) => {
             {markdownify(subtitle, "span")}
           </h3>
 
-          <form className="text-base sm:text-h3">
+          <form
+            className="text-base sm:text-h3"
+            method="POST"
+            onSubmit={formHandler}
+          >
             <div className="form-inputs mb-16">
               <span>Hi, My Name is</span>{" "}
               <input
                 type="text"
+                id="full_name"
+                name="full_name"
                 className="leading-0 w-full max-w-[300px] border-0 border-b border-black p-0 text-base focus:border-black focus:ring-0 dark:border-white dark:bg-transparent sm:text-h3"
                 placeholder="type here"
               />{" "}
               <span>Here is my Email Address </span>{" "}
               <input
                 type="text"
+                id="email"
+                name="email"
                 className="leading-0 w-full max-w-[500px] border-0 border-b border-black p-0 text-base focus:border-black focus:ring-0 dark:border-white dark:bg-transparent sm:text-h3"
                 placeholder="type here"
               />{" "}
@@ -103,10 +146,24 @@ const Contact = ({ data }) => {
             <textarea
               className="mb-12 w-full rounded-lg border-black p-4 text-base focus:border-black focus:ring-0 dark:border-white dark:bg-transparent"
               rows="5"
+              id="message"
+              name="message"
               placeholder="Let’s make something awesome together......"
             ></textarea>
-            <button className="btn">Submit Now</button>
+            <button className="btn">
+              {loader ? "Submiting.." : "Submit Now"}
+            </button>
           </form>
+          {submitted != null &&
+            (submitted ? (
+              <p className="mt-6 text-base text-green-400">
+                Message Submitted Successfully!
+              </p>
+            ) : (
+              <p className="mt-6 text-base text-red-400">
+                Something went wrong! Please try again.
+              </p>
+            ))}
         </div>
       </section>
     </Base>

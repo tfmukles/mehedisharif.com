@@ -20,6 +20,8 @@
   &::after {
     right: -7px;
   }
+  &:active,
+  &:focus,
   &:hover {
     @apply text-white dark:text-primary;
     transition: color 0.25s 0.2s;
