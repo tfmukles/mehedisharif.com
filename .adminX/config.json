@@ -1,0 +1,11 @@
+{
+  "environment": "nextjs",
+  "media": {
+    "root": "public/images",
+    "public": "public/images"
+  },
+  "content": {
+    "root": "content"
+  },
+  "themeConfig": []
+}
