@@ -1,0 +1,29 @@
+{
+  "fileType": "md",
+  "fmType": "yaml",
+  "include": "",
+  "exclude": "",
+  "name": "posts",
+  "template": [
+    {
+      "label": "title",
+      "name": "title",
+      "type": "string"
+    },
+    {
+      "label": "date",
+      "name": "date",
+      "type": "Date"
+    },
+    {
+      "label": "categories",
+      "name": "categories",
+      "type": "Array"
+    },
+    {
+      "label": "draft",
+      "name": "draft",
+      "type": "boolean"
+    }
+  ]
+}
