@@ -7,5 +7,7 @@
   "content": {
     "root": "content"
   },
-  "themeConfig": []
+  "themeConfig": [
+    ""
+  ]
 }
