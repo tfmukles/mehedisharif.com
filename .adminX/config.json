@@ -2,7 +2,7 @@
   "environment": "",
   "media": {
     "root": "public/images",
-    "public": "images"
+    "public": "public/images"
   },
   "content": {
     "root": "content"
