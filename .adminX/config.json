@@ -1,11 +1,13 @@
 {
-  "environment": "",
   "media": {
     "root": "public/images",
-    "public": "public/images"
+    "public": "public"
   },
   "content": {
     "root": "content"
   },
-  "themeConfig": []
+  "themeConfig": [
+    "config"
+  ],
+  "arrangement": {}
 }
