@@ -9,5 +9,15 @@
   "themeConfig": [
     "config"
   ],
-  "arrangement": {}
+  "arrangement": {
+    "content/contact": {
+      "weight": 0
+    },
+    "content/about": {
+      "weight": 1
+    },
+    "content/posts": {
+      "weight": 2
+    }
+  }
 }
