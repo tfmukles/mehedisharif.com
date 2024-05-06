@@ -9,5 +9,13 @@
   "themeConfig": [
     "config"
   ],
-  "arrangement": {}
+  "arrangement": {
+    "content/about": {
+      "test-about": {
+        "weight": 0,
+        "include": "*.md",
+        "exclude": "_index.md"
+      }
+    }
+  }
 }
