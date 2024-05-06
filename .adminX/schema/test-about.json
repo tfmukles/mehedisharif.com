@@ -31,7 +31,7 @@
     {
       "label": "Image",
       "name": "image",
-      "type": "string",
+      "type": "media",
       "value": ""
     },
     {
