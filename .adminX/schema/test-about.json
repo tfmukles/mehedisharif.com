@@ -7,8 +7,10 @@
     {
       "label": "Meta Title",
       "name": "meta_title",
-      "type": "string",
-      "value": ""
+      "type": "media",
+      "value": "",
+      "description": "Mokles",
+      "isRequired": true
     },
     {
       "label": "Title",
