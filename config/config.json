@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Mehedi sharif",
+    "title": "Mehedi khan badsha",
     "base_url": "/",
     "favicon": "/images/favicon.png",
     "logo": "/images/icons/logo-dark.webp",
@@ -9,7 +9,6 @@
     "logo_height": "50",
     "logo_text": "Mehedi sharif"
   },
-
   "bio": {
     "name": "Mehedi Sharif Titas",
     "designation": "Founder at Themefisher",
@@ -27,7 +26,6 @@
       "facebook": "https://www.facebook.com/mehedi.sharif.titas/"
     }
   },
-
   "settings": {
     "theme_switcher": true,
     "default_theme": "system",
@@ -35,18 +33,15 @@
     "summary_length": 200,
     "blog_folder": "posts"
   },
-
   "params": {
     "tag_manager_id": "",
     "copyright": "Copyright © 2022 Mehedi sharif"
   },
-
   "metadata": {
     "meta_author": "Mehedi sharif",
     "meta_image": "/images/og-image.png",
     "meta_description": "Mehedi sharif"
   },
-
   "call_to_action": {
     "title": "found something interesting in me?? let’s have a conversation...",
     "subtitle": "hey look **at_here**",
@@ -54,3 +49,5 @@
     "button_label": "Contact With Me"
   }
 }
+
+null
